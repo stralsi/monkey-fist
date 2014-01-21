@@ -12,10 +12,7 @@ namespace Specs {
     public TestBase() {
       new Session().Database.ExecuteSqlCommand("delete from useractivitylogs;delete from usermailermessages;delete from usersessions;delete from users");
       //clear out emails
-      if (!Directory.Exists(@"c:\temp"))
-        Directory.CreateDirectory(@"c:\temp");
-      if (!Directory.Exists(@"c:\temp"))
-        Directory.CreateDirectory(@"c:\temp\maildrop");
+      Directory.CreateDirectory(@"c:\temp\maildrop");
       //clean out the mailers
       foreach (FileInfo file in new DirectoryInfo(@"c:\temp\maildrop").GetFiles()) {
         file.Delete();
